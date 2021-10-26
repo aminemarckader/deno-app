@@ -8,9 +8,12 @@ pipeline {
         }
 
         stage('publish') {
-            docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {                         
-                //define dockerhub registry and credentials id
-                def app = docker.build("aminekader/deno-app:${commit_id}", '.')  //build and push
+            steps{
+                docker.withRegistry('https://index.docker.io/v1/', 'dockerhub')
+                {                         
+                    //define dockerhub registry and credentials id
+                    def app = docker.build("aminekader/deno-app", '.')  //build and push
+                }
             }
         }
     }
