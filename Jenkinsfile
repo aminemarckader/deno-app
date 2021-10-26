@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('build'){
             steps {
-                sh 'deno run --allow-net index.ts'
+                sh 'docker-compose up -d'
             }
         }
 
