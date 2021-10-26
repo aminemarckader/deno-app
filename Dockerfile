@@ -6,6 +6,6 @@ WORKDIR /app
 
 ADD . /app
 
-RUN deno cache server.ts
+RUN deno cache index.ts
 
 CMD ["run", "--allow-net", "--allow-read", "server.ts"]
